@@ -1,0 +1,27 @@
+template<typename T>
+int binarySearchFirst(std::vector<T> vec, T target) {
+    int index = binarySearch(vec, target); // Use existing binarySearch
+    if (index == -1) {
+        return -1; // Target not found
+    }
+    
+    // Adjust the result to find the first occurrence
+    while (index > 0 && vec[index - 1] == target) {
+        --index;
+    }
+    return index;
+}
+
+template<typename T, std::size_t N>
+int binarySearchFirst(std::array<T, N> arr, T target) {
+    int index = binarySearch(arr, target); // Use existing binarySearch
+    if (index == -1) {
+        return -1; // Target not found
+    }
+
+    // Adjust the result to find the first occurrence
+    while (index > 0 && arr[index - 1] == target) {
+        --index;
+    }
+    return index;
+}
